@@ -10,7 +10,6 @@ Built with the [gw-presentation](https://github.com/gw-ospo/gw-presentation) ski
 2. Part 1: design skill and review process
 3. Part 2: Quarto and AI (content vs. format, three benefits)
 4. Part 3: other AI work (TAI, OFAI, pop-up AI museum)
-5. Part 4: open source discovery & curation (ORB, OSPO Radar)
 
 Speaker notes (press `S`) carry timings.
 

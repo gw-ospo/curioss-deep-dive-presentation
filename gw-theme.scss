@@ -33,7 +33,7 @@ $font-family-sans-serif: "Avenir Next", "Nunito Sans", "Helvetica Neue", Arial, 
   --navy-yard: #{$navy-yard};
   --gw-buff-20: #{$gw-buff-20};
   --gw-buff-50: #{$gw-buff-50};
-  // Semantic roles. The TODO Group theme (todo-group-theme.scss) overrides these.
+  // Semantic roles. The CURIOSS theme (curioss.scss) overrides these.
   --c-ink: #{$gw-blue};          // headlines, dark UI
   --c-deep: #{$navy-yard};       // dark slide background
   --c-accent: #{$gw-buff};       // rules, tile borders
@@ -228,6 +228,14 @@ html.gw-substitute-fonts {
     p { margin: 0 0 10px; }
     ul { margin: 0; padding-left: 1.1em; }
   }
+  // Dense slides: tighter type and spacing so content stays inside the footer line.
+  section.fit .split ul, section.fit .split p { font-size: 23px; line-height: 1.35; margin-bottom: 8px; }
+  section.fit .split ul li { margin-bottom: 2px; }
+  section.fit .split { align-items: start; gap: 40px; }
+  section.fit .split img { max-height: 400px; }
+  section.fit .tiles { align-content: start; gap: 22px; }
+  section.fit .tile.compact { font-size: 21px; line-height: 1.3; padding: 22px 24px 16px; }
+  section.fit .tile.compact li { margin-bottom: 4px; }
   .tile.slim { font-size: 24px; }
   .tile.compact { font-size: 21px; padding: 24px 28px 18px; line-height: 1.4; }
 
@@ -297,7 +305,7 @@ html.gw-substitute-fonts {
     flex: 1;
     min-height: 0;
     align-items: center;
-    img { max-width: 100%; max-height: 430px; margin: 0 auto; display: block; border: 0; box-shadow: none; }
+    img { max-width: 100%; max-height: 405px; margin: 0 auto; display: block; border: 0; box-shadow: none; }
   }
 
   // Flyer with review highlights: image left, finding right.
@@ -311,7 +319,7 @@ html.gw-substitute-fonts {
     margin-top: 6px;
   }
   .flyer { position: relative; line-height: 0; }
-  .flyer img { height: 500px; width: auto; max-width: none; margin: 0; border: 0; box-shadow: none; display: block; }
+  .flyer img { height: 488px; width: auto; max-width: none; margin: 0; border: 0; box-shadow: none; display: block; }
   .flyer .hl {
     position: absolute;
     border: 4px solid #EF4343;
@@ -465,7 +473,7 @@ html.gw-substitute-fonts {
 .reveal:has(.slides section.present.has-dark-background) .footer a { color: #fff; }
 
 // Header logos, top right of every slide, injected by the theme switcher script.
-// Clicking a logo switches the deck between the GW theme and the TODO Group theme.
+// Clicking a logo switches the deck between the GW theme and the CURIOSS theme.
 .reveal .slides section.slide .hdr-logos {
   position: absolute;
   top: 26px;
@@ -490,8 +498,8 @@ html.gw-substitute-fonts {
 .reveal .hdr-logo:hover, .reveal .hdr-logo:focus-visible { opacity: 1; }
 .reveal .hdr-logo.active { opacity: 1; cursor: default; }
 .reveal .hdr-logo.ospo { width: 138px; height: 36px; background-image: $logo-ospo-img; }
-.reveal .hdr-logo.todo { width: 92px; height: 40px; background-image: $logo-todo-light-img; }
-.reveal .slides section.slide.dark .hdr-logo.todo { background-image: $logo-todo-dark-img; }
+.reveal .hdr-logo.curioss { width: 160px; height: 26px; background-image: $logo-curioss-light-img; }
+.reveal .slides section.slide.dark .hdr-logo.curioss { background-image: $logo-curioss-dark-img; }
 .reveal .slides section.slide.dark .hdr-logo.ospo { filter: brightness(0) invert(1); }  // GW OSPO logo reversed to white
 
 // Page number, bottom right, in line with the footer.

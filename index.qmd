@@ -2,7 +2,7 @@
 pagetitle: "How the GW OSPO Uses Skill.md and AI"
 format:
   revealjs:
-    theme: [default, gw-theme.scss, todo-group-theme.scss]
+    theme: [default, gw-theme.scss, curioss.scss]
     width: 1280
     height: 720
     margin: 0
@@ -14,12 +14,12 @@ format:
     hash: true
     transition: none
     mouse-wheel: true
-    footer: "[How the GW OSPO Uses Skill.md and AI](https://gw-ospo.github.io/todo-ai-agent-presentation/) © 2026 by [David Lippert](https://github.com/david-lippert) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    footer: "[How the GW OSPO Uses Skill.md and AI](https://gw-ospo.github.io/curioss-deep-dive-presentation/) © 2026 by [David Lippert](https://github.com/david-lippert) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
     embed-resources: true
     include-in-header:
       text: |
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Oswald:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     include-after-body:
       text: |
         <script>
@@ -42,19 +42,19 @@ format:
         // Embedded talks: load each iframe only when its slide is shown, so a
         // missing connection never slows the rest of the deck. (Created here,
         // not in the markdown, so the render step doesn't inline the page.)
-        // Theme switcher: GW and TODO Group logos in each slide header toggle the theme.
+        // Theme switcher: GW and CURIOSS logos in each slide header toggle the theme.
         document.addEventListener('DOMContentLoaded', function () {
           var root = document.documentElement;
           var saved = null;
           try { saved = localStorage.getItem('deck-theme'); } catch (e) {}
-          var m = /[?&]theme=(gw|todo)/.exec(location.search);
-          var current = m ? m[1] : (saved === 'todo' ? 'todo' : 'gw');
+          var m = /[?&]theme=(gw|curioss)/.exec(location.search);
+          var current = m ? m[1] : (saved === 'curioss' ? 'curioss' : 'gw');
           var sections = document.querySelectorAll('.reveal .slides > section');
           sections.forEach(function (sec) {
             var box = document.createElement('div');
             box.className = 'hdr-logos';
             [['ospo', 'gw', 'GW Open Source Program Office', 'Switch to the GW theme'],
-             ['todo', 'todo', 'TODO Group', 'Switch to the TODO Group theme']].forEach(function (d) {
+             ['curioss', 'curioss', 'CURIOSS', 'Switch to the CURIOSS theme']].forEach(function (d) {
               var b = document.createElement('button');
               b.type = 'button';
               b.className = 'hdr-logo ' + d[0];
@@ -68,7 +68,7 @@ format:
           });
           function setTheme(name) {
             current = name;
-            root.classList.toggle('theme-todo', name === 'todo');
+            root.classList.toggle('theme-curioss', name === 'curioss');
             document.querySelectorAll('.hdr-logo').forEach(function (b) {
               b.classList.toggle('active', b.getAttribute('data-theme') === name);
             });
@@ -89,7 +89,7 @@ format:
             Reveal.on('ready', function () { setTheme(current); });
             if (Reveal.isReady && Reveal.isReady()) setTheme(current);
             document.addEventListener('keydown', function (e) {
-              if (e.key === 't' && !e.metaKey && !e.ctrlKey && !e.altKey) setTheme(current === 'gw' ? 'todo' : 'gw');
+              if (e.key === 't' && !e.metaKey && !e.ctrlKey && !e.altKey) setTheme(current === 'gw' ? 'curioss' : 'gw');
             });
           }
           start();
@@ -154,7 +154,7 @@ execute:
 
 <!-- ============ OVERVIEW (3 slides, ~3 min) ============ -->
 
-## GW Open Source Program Office {.content-slide}
+## GW Open Source Program Office {.content-slide .fit}
 
 <div class="kicker">Overview</div>
 
@@ -162,7 +162,15 @@ execute:
 ::: {}
 **Based in the Library**, serving all GW students, faculty, staff, and researchers.
 
-**Mission:** foster a culture of open collaboration through open source software, open data, and open access.
+**Education:** 
+
+- What is open source?
+- How do I make research outputs public?
+- Can open source help me get a job?
+
+**Community Building:**
+
+- Open source as the glue to help academia, industry, government, & other orgs work together
 
 [ospo.gwu.edu](https://ospo.gwu.edu/)
 :::
@@ -171,54 +179,42 @@ execute:
 :::
 :::
 
-## What we do {.content-slide}
+## Our initiatives & services {.content-slide .fit}
 
-<div class="kicker">Overview</div>
+<div class="kicker">OSPO Update</div>
 
-::: {.tiles}
-::: {.tile}
-[Educate]{.tile-label}
+::: {.tiles .tiles-3}
+::: {.tile .compact}
+[Programs]{.tile-label}
 
-- What is open source?
-- How do I make research outputs public?
-- Can open source help me get a job?
+- Project Registry
+- Student Award Program
+- OSPO Student Ambassadors
+- OSPO Fellows Program
+- Industry Partner Program
+- Intern & Capstone Programs
+- Open Source Literacy Research
 :::
-::: {.tile}
-[Connect]{.tile-label}
+::: {.tile .compact}
+[Events & services]{.tile-label}
 
-- Open source as the glue to help academia, industry, government, & other orgs work together
-- Network: CURIOSS, CHAOSS, OFAI, UN, Nava, Civic Tech DC, CMS, TODO, ...
-:::
-::: {.tile}
-[Support]{.tile-label}
-
-- Consultations
+- OSCON · March 31 to April 1, 2027
 - Workshops
-- Grant support
-- Initiatives
-- Events
+- Hackathons
+- Consultations
 :::
-:::
+::: {.tile .compact}
+[External collaborations]{.tile-label}
 
-## Events {.content-slide}
-
-<div class="kicker">Overview</div>
-
-::: {.split}
-::: {}
-- [GW OSCON](https://ospo.gwu.edu/open-source-conference-gw-oscon-2027), March 31 to April 1, 2027
-- GW Coders Lunch & Learn
-- Hackathons and the Halloween Robot Challenge
-- Student ambassadors and awards
+- CURIOSS
+- CHAOSS
+- United Nations
+- OFAI
+- Hugging Face
+- Nava, OpenTeams
+- Civic Tech DC
+- Center for Medicare & Medicaid Services
 :::
-::: {}
-![](images/ospo-ambassadors.jpg)
-[2025/2026 GW OSPO Ambassadors]{.caption}
-:::
-:::
-
-::: notes
-Keep this to about 3 minutes total. The rest of the talk is about AI.
 :::
 
 <!-- ============ PART 1: DESIGN SKILL (~7 min) ============ -->
@@ -521,16 +517,6 @@ Research from Professor John P. Helveston.
 Live embed of slide 9 from Professor Helveston's posit::conf(2026) talk (jhelvy.github.io/2026-posit-conf-quarto/#/8). Needs internet. Click inside the frame to advance its fragments, then use the arrow keys outside it. Write once in plain text; choose slides, PDF, web page, or Word later.
 :::
 
-## Quarto disentangles content and format, continued {.content-slide}
-
-<div class="kicker">Part 2 · Professor John P. Helveston, posit::conf(2026)</div>
-
-<div class="embed-deck"><div class="embed-frame" data-embed-native="1600x900" data-embed-src="https://jhelvy.github.io/2026-posit-conf-quarto/#/9" data-embed-title="Slide 10 of John Helveston's posit::conf 2026 talk"></div></div>
-
-::: notes
-Live embed of slide 10 (jhelvy.github.io/2026-posit-conf-quarto/#/9).
-:::
-
 ## Same content, four formats - output tokens {.content-slide}
 
 <div class="kicker">Part 2 · Quarto</div>
@@ -601,7 +587,7 @@ Change the theme and every slide changes. Change a sentence and the design is un
 ::: {.tile}
 [Source]{.tile-label}
 
-[github.com/gw-ospo/todo-ai-agent-presentation](https://github.com/gw-ospo/todo-ai-agent-presentation)
+[github.com/gw-ospo/curioss-deep-dive-presentation](https://github.com/gw-ospo/curioss-deep-dive-presentation)
 :::
 :::
 
@@ -667,7 +653,7 @@ The frame runs the open source research game live (gw-ospo.shinyapps.io/os-resea
 TODO: replace with pop-up AI museum photos and add 2-3 facts (dates, location, what visitors did). The embedded site is gw-ospo.github.io/open-source-workshop (live, needs internet); caption: good first contributions.
 :::
 
-<!-- ============ PART 4: ORB + OSPO RADAR (~6 min) ============ -->
+<!-- ============ CLOSE ============ -->
 
 ## Thank you {.dark .big-idea .rule background-color="#00223E"}
 
@@ -686,48 +672,5 @@ Let's collaborate on research projects and provide opportunities for students to
 <div class="ribbon"></div>
 
 ::: notes
-About 15 minutes for questions. Backup slides follow: open source discovery and curation (ORB and OSPO Radar).
-:::
-
-<!-- ============ BACKUP ============ -->
-
-## Backup {.dark .divider background-color="#00223E"}
-
-<div class="star-pattern"></div>
-
-<div class="kicker">Backup slides</div>
-
-::: {.lead}
-Open source discovery and curation.
-:::
-
-## Open Source Discovery & Curation {.content-slide}
-
-<div class="kicker">Backup · Discovery</div>
-
-::: {.tiles .cols-2}
-::: {.tile .slim .compact}
-[ORB · Open Source Repository Browser]{.tile-label}
-
-- Built by the UC OSPO Network
-- Maps and classifies open source projects across UC campuses
-- Makes projects easier to find for researchers, students, and collaborators
-- Raises visibility, recognition, and funding potential
-
-[ORB on GitHub](https://github.com/UC-OSPO-Network/orb-showcase)
-:::
-::: {.tile .slim .compact}
-[OSPO Radar · with Software Heritage]{.tile-label}
-
-- Two-year, Sloan Foundation funded project
-- Institutional portal and software assets dashboard for OSPOs
-- Builds on CodeMeta metadata and Software Heritage archiving
-- Includes an Open Science helpdesk and training
-
-[OSPO-RADAR launch post](https://www.softwareheritage.org/2025/04/02/ospo-radar-project-launch/)
-:::
-:::
-
-::: notes
-ORB: github.com/UC-OSPO-Network/orb-showcase (UC Open Source Repository Browser Showcase). OSPO-RADAR = Open Source Program Office Research Assets Dashboard and Archival Resource. Source: softwareheritage.org/2025/04/02/ospo-radar-project-launch/. Software Heritage is collaborating with CURIOSS and seeking academic OSPOs to join. Add a screenshot of ORB or the Radar dashboard if one is available; the ORB demo site (orb-showcase-seven.vercel.app) returned 404 when checked.
+About 15 minutes for questions.
 :::
