@@ -376,7 +376,7 @@ Must fix #2. brand-checks T2 (Gazzetta carries headlines) and T5 (Source Serif s
 Should fix #3 (alignment) and #4 (contrast). Highlight 1: centered hero block. Highlight 2: cream prize banner, the highest-contrast shape. Highlight 3: the deadline banner, the actual call to action. The one job of this piece is to get students to apply by November 1.
 :::
 
-## From first draft to final {.content-slide background-color="#EEEEEE"}
+## From first draft to final {.content-slide}
 
 <div class="kicker">Part 1 · Design skill</div>
 
@@ -396,6 +396,43 @@ Should fix #3 (alignment) and #4 (contrast). Highlight 1: centered hero block. H
 
 ::: notes
 Back to the before and after, now that we have seen what the review found. Walk through what changed: the on-palette blue, the headline type, the left alignment, and the deadline carrying more weight.
+:::
+
+## From first draft to final, more examples {.content-slide}
+
+<div class="kicker">Part 1 · Design skill</div>
+
+::: {.compare-stack}
+::: {.compare}
+::: {}
+![](images/robot-original.jpg)
+[Original]{.caption}
+:::
+::: {.arrow}
+→
+:::
+::: {}
+![](images/robot-final.jpg)
+[Final]{.caption}
+:::
+:::
+::: {.compare}
+::: {}
+![](images/hackathon-original.jpg)
+[Original]{.caption}
+:::
+::: {.arrow}
+→
+:::
+::: {}
+![](images/hackathon-final.jpg)
+[Final]{.caption}
+:::
+:::
+:::
+
+::: notes
+Two more before and afters. Top: the Halloween Robot Challenge flyer with PeerBots and GWIC. Bottom: the Civic Tech DC and GW OSPO hackathon flyer. In each, the original is on the left and the final, made with the skills and then reviewed, is on the right.
 :::
 
 ## Inside the design review repo {.content-slide}
@@ -458,41 +495,67 @@ Repo: github.com/gw-ospo/gw-design-review. The skill follows the open Agent Skil
 </div>
 </div>
 
-<p class="foot-note"><b>Then ask:</b> "Review this poster against our brand guidelines. It's a printed 11×17 for the OSCON call for papers."</p>
+<p class="foot-note"><b>Then ask:</b> "Please review the graphic design of the attached flyer according to the GW OSPO brand guidelines."</p>
 
 ::: notes
 Have three answers ready: what it is and where it will end up, who it is for and what they should do next, and whether it is OSCON or general OSPO (OSCON has three extra accent colors). Claude Code: git clone the repo, cd in, run claude; or symlink the skill into ~/.claude/skills to use it in any folder. Do not upload the GitHub repo zip to claude.ai; use the ready-made gw-design-review.zip. ChatGPT/Codex reads .agents/skills, so copy the folder there. Ask early, not at the end; it will not redesign your work; if it is wrong, say so and ask it to look again.
 :::
 
-## Where to find the skills {.content-slide}
+## Where to find the skills {.content-slide .fit}
 
 <div class="kicker">Part 1 · The repos</div>
 
-<div class="tiles tiles-3">
-<div class="tile slim">
+<div class="tiles cols-2 fit">
+<div class="tile compact">
 <span class="tile-label">gwospo-brand</span>
 Brand assets and the design system for the GW OSPO, including the OSCON palette and patterns.
 
 [github.com/gw-ospo/gwospo-brand](https://github.com/gw-ospo/gwospo-brand)
 </div>
-<div class="tile slim">
+<div class="tile compact">
 <span class="tile-label">gw-design-review</span>
 The design reviewer. Checks a flyer, poster, deck, or page against the brand and the four principles.
 
 [github.com/gw-ospo/gw-design-review](https://github.com/gw-ospo/gw-design-review)
 </div>
-<div class="tile slim">
+<div class="tile compact">
 <span class="tile-label">gw-presentation</span>
 Builds GW-branded slides. The newest piece, and it helped build this deck.
 
 [github.com/gw-ospo/gw-presentation](https://github.com/gw-ospo/gw-presentation)
 </div>
+<div class="tile compact">
+<span class="tile-label">sciwrite</span>
+Science writing review. Audits a manuscript for clutter, passive voice, structure, and clear summaries.
+
+[github.com/labarba/sciwrite](https://github.com/labarba/sciwrite)
+</div>
 </div>
 
-<div class="credit"><img src="images/lorena-barba.png" alt="Professor Lorena Barba"><span>All three skills created by <b>Professor Lorena Barba</b></span></div>
+<div class="credit"><img src="images/lorena-barba.png" alt="Professor Lorena Barba"><span>Skills created by <b>Professor Lorena Barba</b></span></div>
 
 ::: notes
-Photo of Lorena Barba: Lorena Barba, CC BY 3.0, via Wikimedia Commons. The workflow: the brand repo defines the standard, the design review skill checks work against it, and the presentation skill produces on-brand slides to begin with. All three are open source from the gw-ospo GitHub organization.
+Photo of Lorena Barba: Lorena Barba, CC BY 3.0, via Wikimedia Commons. The workflow: the brand repo defines the standard, the design review skill checks work against it, and the presentation skill produces on-brand slides to begin with. The first three are open source from the gw-ospo GitHub organization. The fourth, sciwrite (science writing review), is in Lorena Barba's own repo and applies the methodology from Kristin Sainani's Writing in the Sciences course at Stanford: six audit passes over a manuscript, with findings tagged critical, major, or minor.
+:::
+
+## in progress - Accessibility Review skill {.content-slide}
+
+<div class="kicker">Part 1 · The repos</div>
+
+<div class="report-slide">
+<div class="tile compact">
+<span class="tile-label">gw-accessibility-review</span>
+A new skill that reviews posters, flyers, decks, PDFs, web pages, and social posts against the GW Digital Content Accessibility Policy (WCAG 2.1 AA) and the GW Standards and Best Practices.
+
+It measures contrast, checks that color is not the only signal, and lists what it could not verify, such as alt text and captions. The report ends with a publish verdict and prioritized fixes.
+
+[github.com/gw-ospo/gw-accessibility-review](https://github.com/gw-ospo/gw-accessibility-review)
+</div>
+<div class="report-img"><img src="images/accessibility-review.png" alt="The top of an accessibility review written in markdown for the OSCON 2027 call for proposals social post: verdict not ready to publish, the one-line read, what is working, and the first must-fix finding"></div>
+</div>
+
+::: notes
+Work in progress. The top of a real review of the OSCON 2027 call for proposals social graphic (2026-11-18): verdict "Not ready to publish", one measured barrier (the URL strip, white on OSCON Green at 3.11:1, needs 4.5:1), and a list of things it could not check from the image alone (alt text, caption, the linked form). Like the design review, it opens with what is working and names the exact fix.
 :::
 
 <!-- ============ PART 2: QUARTO (~8 min) ============ -->
