@@ -619,6 +619,9 @@ Research, policy, and the pop-up AI museum.
 
 - CMU, UT Austin, Georgia Tech, Purdue, GW
 - Research, prototypes, policy, community, talent
+- Hugging Face Partnership
+	- [Protostar Project](https://huggingface.co/project-protostar)
+	- [CMU Hackathon](https://huggingface.co/spaces/CMU-OSPO/protostar-challenge-climate-risk-intelligence)
 :::
 :::
 
